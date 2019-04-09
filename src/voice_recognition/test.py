@@ -61,7 +61,7 @@ class MyThread(QThread):
                     text = r.recognize_google(audio)
                     answer, accuracy = self.index.find_most_similar(text)
                     answer['time'] = t
-                    if accuracy > 0.6:
+                    if accuracy >= 0.4:
                         self.l.append(answer)
 
                 except:
