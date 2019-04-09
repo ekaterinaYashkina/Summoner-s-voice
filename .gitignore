@@ -1,3 +1,6 @@
 .idea/
-src/main/__pycache__
+__pycache__
 venv/
+src/voice_recognition/editing_info.py
+src/voice_recognition/editing_info.ui
+src/voice_recognition/main.py
