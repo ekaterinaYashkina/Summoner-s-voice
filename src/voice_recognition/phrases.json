@@ -1,0 +1,66 @@
+{
+  "annie heal": {
+    "duration": 240,
+    "paraphrases": []
+  },
+  "annie ghost": {
+    "duration": 180,
+    "paraphrases": []
+  },
+  "annie barrier": {
+    "duration": 210,
+    "paraphrases": []
+  },
+  "annie flash": {
+    "duration": 300,
+    "paraphrases": []
+  },
+  "annie teleport": {
+    "duration": 360,
+    "paraphrases": []
+  },
+  "annie smite": {
+    "duration": 15,
+    "paraphrases": []
+  },
+  "annie cleanse": {
+    "duration": 210,
+    "paraphrases": []
+  },
+  "annie ignite": {
+    "duration": 180,
+    "paraphrases": []
+  },
+  "veigar heal": {
+    "duration": 240,
+    "paraphrases": []
+  },
+  "veigar ghost": {
+    "duration": 180,
+    "paraphrases": []
+  },
+  "veigar barrier": {
+    "duration": 210,
+    "paraphrases": []
+  },
+  "veigar flash": {
+    "duration": 300,
+    "paraphrases": []
+  },
+  "veigar teleport": {
+    "duration": 360,
+    "paraphrases": []
+  },
+  "veigar smite": {
+    "duration": 15,
+    "paraphrases": []
+  },
+  "veigar cleanse": {
+    "duration": 210,
+    "paraphrases": []
+  },
+  "veigar ignite": {
+    "duration": 180,
+    "paraphrases": []
+  }
+}
