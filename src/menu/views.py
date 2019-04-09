@@ -1,5 +1,6 @@
 import pickle
 
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QMainWindow
 
 from widgets import AboutWidget, MainWidget, SettingsWidget, GameInfoWidget, StartWidget
@@ -8,6 +9,8 @@ from widgets import AboutWidget, MainWidget, SettingsWidget, GameInfoWidget, Sta
 class AppView(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.press_pos = None
+
         self.check_saved_state()
         if not self.app_state:
             self.app_state = {
@@ -132,6 +135,18 @@ class AppView(QMainWindow):
         gameinfo.to_menu.clicked.connect(lambda: self.switch_layout(0))
 
         return gameinfo
+
+    def mousePressEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            self.press_pos = event.pos()  # remember starting position
+
+    def mouseReleaseEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            self.press_pos = None
+
+    def mouseMoveEvent(self, event):
+        if self.press_pos:  # follow the mouse
+            self.move(self.pos() + (event.pos() - self.press_pos))
 
     def closeEvent(self, event):
         self.save_state()
