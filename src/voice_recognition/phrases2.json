@@ -1,0 +1,132 @@
+{
+    "annie heal": {
+        "duration": 240,
+        "paraphrases": [
+            "Amy Schumer",
+            "Benny Hill",
+            "thank you"
+        ]
+    },
+    "annie ghost": {
+        "duration": 180,
+        "paraphrases": [
+            "any ghosts",
+            "alien ghost",
+            "can you ghost",
+            "and you ghost"
+        ]
+    },
+    "annie barrier": {
+        "duration": 210,
+        "paraphrases": [
+            "anybody here"
+        ]
+    },
+    "annie flash": {
+        "duration": 300,
+        "paraphrases": [
+            "any flesh",
+            "Amy flesh",
+            "can you flash",
+            "and your flesh",
+            "Amy flesh"
+        ]
+    },
+    "annie teleport": {
+        "duration": 360,
+        "paraphrases": [
+            "Aeneid teleport",
+            "can you Deport",
+            "Annie teleport"
+        ]
+    },
+    "annie smite": {
+        "duration": 15,
+        "paraphrases": [
+            "and you smite",
+            "Amy Smart",
+            "Amy Smith",
+        ]
+    },
+    "annie cleanse": {
+        "duration": 210,
+        "paraphrases": [
+            "anglin's",
+            "and you creams",
+            "can you cleanse"
+        ]
+    },
+    "annie ignite": {
+        "duration": 180,
+        "paraphrases": [
+            "Amy ignite",
+            "any good night",
+            "painting night"
+        ]
+    },
+    "veigar heal": {
+        "duration": 240,
+        "paraphrases": [
+            "Reagan Hill",
+            "Viagra Hill",
+            "Quaker Hill"
+        ]
+    },
+    "veigar ghost": {
+        "duration": 180,
+        "paraphrases": [
+            "Reagan ghost",
+            "Lego ghost"
+        ]
+    },
+    "veigar barrier": {
+        "duration": 210,
+        "paraphrases": [
+            "wagon barrier",
+            "Waker barrier",
+            "rhaegar Targaryen",
+            "a regular beer"
+        ]
+    },
+    "veigar flash": {
+        "duration": 300,
+        "paraphrases": [
+            "Waker flesh",
+            "Wake Forest",
+            "Lego Flash"
+        ]
+    },
+    "veigar teleport": {
+        "duration": 360,
+        "paraphrases": [
+            "Lego City Port",
+            "Lego City Board"
+        ]
+    },
+    "veigar smite": {
+        "duration": 15,
+        "paraphrases": [
+            "Ragan Smith",
+            "Lego Smith",
+            "Greg Smith",
+            "Wagner Smith",
+            "juego smite"
+        ]
+    },
+    "veigar cleanse": {
+        "duration": 210,
+        "paraphrases": [
+            "Vega greens",
+            "Reagan cleans",
+            "Lego trains",
+            "Lego planes"
+        ]
+    },
+    "veigar ignite": {
+        "duration": 180,
+        "paraphrases": [
+            "vagrant ignite",
+            "wake ID net"
+        ]
+    }
+}

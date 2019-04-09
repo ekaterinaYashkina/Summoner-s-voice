@@ -13,7 +13,7 @@ from info import *
 class MyIndex(object):
 
     def __init__(self):
-        with open('phrases.json') as f:
+        with open('phrases2.json') as f:
             self.index = dict(json.load(f))
 
     def find_most_similar(self, query):
@@ -33,14 +33,16 @@ class MyIndex(object):
             if answer_best_score[k] > result_v:
                 result = k
                 result_v = answer_best_score[k]
-        return {"name_and_skill": result, "duration": self.index[result]['duration']}
+        print(result_v)
+        return {"name_and_skill": result, "duration": self.index[result]['duration']}, result_v
 
 
 class MyThread(QThread):
 
-    def __init__(self, q):
+    def __init__(self, l: list):
         QThread.__init__(self)
-        self.q = q
+        self.index = MyIndex()
+        self.l = l
 
     def run(self):
         r = sr.Recognizer()
@@ -49,21 +51,22 @@ class MyThread(QThread):
             i = 0
             r.adjust_for_ambient_noise(source)
             while True:
-                print("Say something", i)
+                # print("Say something", i)
                 i += 1
 
                 audio = r.listen(source)
 
                 try:
+                    t = time.time()
                     text = r.recognize_google(audio)
-                    print(text)
-                    self.q.append(text)
+                    answer, accuracy = self.index.find_most_similar(text)
+                    answer['time'] = t
+                    if accuracy > 0.6:
+                        self.l.append(answer)
 
                 except:
-                    print("Something goes wrong")
-                # self.q.append(str(i))
-                # time.sleep(2)
-                # i+=1
+                    print("Google api error!")
+
 
 
 class InfoWindow(QtWidgets.QMainWindow):
@@ -71,21 +74,28 @@ class InfoWindow(QtWidgets.QMainWindow):
         super(QtWidgets.QMainWindow, self).__init__(parent)
         self.ui1 = Ui_FirstWindow()
         self.ui1.setupUi(self)
-        self.q = []
-        self.my_thread = MyThread(self.q)
+
+        self.l = []
+        self.my_thread = MyThread(self.l)
+
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.showTime)
         self.timer.start(1000)
+
         self.my_thread.start()
 
     def showTime(self):
         str_to_print = [str(time.ctime()), '\n']
-
-        for e in self.q:
-            str_to_print.append(e)
-            str_to_print.append('\n')
-
+        removing_elements = []
+        for e in self.l:
+            if 0 >= int(e['duration']) - int(time.time()-e['time']):
+                removing_elements.append(e)
+            else:
+                str_to_print.append(str(e['name_and_skill'])+" "+str(int(e['duration']) - int(time.time()-e['time'])))
+                str_to_print.append('\n')
+        for e in removing_elements:
+            self.l.remove(e)
         self.ui1.textEdit.setText(''.join(str_to_print))
 
 
