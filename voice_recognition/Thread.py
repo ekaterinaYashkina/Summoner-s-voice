@@ -42,7 +42,7 @@ class ApiResponse(threading.Thread):
                 name = 'twelvedavinci'
                 token = 'RGAPI-548630ff-7321-40fc-a0f9-5f532b52bdbb'
                 get_statistics(name, token)
-
+                return
             ans['time'] = self.t
             if acc >= 0.4:
                 self.timings_info.append(ans)
