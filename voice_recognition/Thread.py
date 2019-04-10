@@ -52,17 +52,21 @@ class ApiResponse(threading.Thread):
             print("Google API error!")
 
 
+mutex = threading.Lock()
+
 class ThreadEat(threading.Thread):
     def __init__(self):
         super().__init__()
 
     def run(self):
+        mutex.locked()
         remind_to_eat()
-
-
+        mutex.release()
 class ThreadRest(threading.Thread):
     def __init__(self):
         super().__init__()
 
     def run(self):
+        mutex.locked()
         remind_to_rest()
+        mutex.release()
