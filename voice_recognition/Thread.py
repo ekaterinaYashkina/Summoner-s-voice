@@ -5,6 +5,8 @@ from PyQt5.QtCore import QThread
 
 from voice_recognition.Index import Index
 from stats.statistics import *
+from stats.healthcare import *
+
 
 class Thread(QThread):
     def __init__(self, timings_info: list):
@@ -48,3 +50,19 @@ class ApiResponse(threading.Thread):
                 self.timings_info.append(ans)
         except Exception:
             print("Google API error!")
+
+
+class ThreadEat(threading.Thread):
+    def __init__(self):
+        super().__init__()
+
+    def run(self):
+        remind_to_eat()
+
+
+class ThreadRest(threading.Thread):
+    def __init__(self):
+        super().__init__()
+
+    def run(self):
+        remind_to_rest()

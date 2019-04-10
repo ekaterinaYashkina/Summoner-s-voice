@@ -1,11 +1,10 @@
 import pickle
 
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtWidgets import QMainWindow
 
-from voice_recognition.Thread import Thread
+from voice_recognition.Thread import *
 from widgets import AboutWidget, MainWidget, SettingsWidget, GameInfoWidget, StartWidget
-
 
 class AppView(QMainWindow):
     def __init__(self):
@@ -28,6 +27,13 @@ class AppView(QMainWindow):
         self.my_thread = Thread(self.timings_info)
 
         self.init_ui()
+
+        self.timer_rest = QTimer(self)
+        self.timer_rest.timeout.connect(self.sayRest)
+
+        self.timer_eat = QTimer(self)
+        self.timer_eat.timeout.connect(self.sayEat)
+
 
     def check_saved_state(self):
         try:
@@ -70,6 +76,7 @@ class AppView(QMainWindow):
             self.switch_button(obj.voice_stats, self.app_state[key])
         elif key == 'health_care':
             self.switch_button(obj.health_care, self.app_state[key])
+            self.run_or_disable_timers(self.app_state[key])
         elif key == 'volume':
             obj.volume.setValue(value)
             obj.volume_value.setText(str(value))
@@ -172,3 +179,19 @@ class AppView(QMainWindow):
     def closeEvent(self, event):
         self.save_state()
         quit(0)
+
+    def sayEat(self):
+        thread = ThreadEat()
+        thread.start()
+
+    def sayRest(self):
+        thread = ThreadRest()
+        thread.start()
+
+    def run_or_disable_timers(self, run):
+        if run:
+            self.timer_eat.start(10000)
+            self.timer_rest.start(5000)
+        else:
+            self.timer_eat.stop()
+            self.timer_rest.stop()
