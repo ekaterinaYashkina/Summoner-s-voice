@@ -127,13 +127,14 @@ def get_statistics(name, token):
         phrase = "My son!!!! Be careful of player " + teams[enemy_team]['max']['name'] + "next time, he is the master!"
     phrase += "Next time avoid playing with player " + teams[my_team]['min']['name'] + "! He is the least experienced."
     tts = gTTS(phrase, 'en')
-    tts.save("advice.mp3")
+    # tts.save("advice.mp3")
 
     pygame.mixer.init()
     sf = TemporaryFile()
     tts.write_to_fp(sf)
     sf.seek(0)
     pygame.mixer.music.load(sf)
+    pygame.mixer.music.set_volume(1)
     pygame.mixer.music.play()
     # pygame.mixer.music.load("advice.mp3")
     # pygame.mixer.music.set_volume(1.0)
@@ -143,11 +144,11 @@ def get_statistics(name, token):
         pass
     # player.play()
     #
-    if os.path.exists("advice.mp3"):
-        os.remove("advice.mp3")
-    else:
-        print("The file does not exist")
-    return phrase
+    # if os.path.exists("advice.mp3"):
+    #     os.remove("advice.mp3")
+    # else:
+    #     print("The file does not exist")
+    # return phrase
     # print(json.dumps(match, sort_keys=True, indent=2, separators=(',', ': ')))
 
 
