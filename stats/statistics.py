@@ -150,8 +150,3 @@ def get_statistics(name, token):
     #     print("The file does not exist")
     # return phrase
     # print(json.dumps(match, sort_keys=True, indent=2, separators=(',', ': ')))
-
-
-name = 'twelvedavinci'
-token = 'RGAPI-548630ff-7321-40fc-a0f9-5f532b52bdbb'
-print(get_statistics(name, token))
