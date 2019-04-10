@@ -4,7 +4,7 @@ import time
 from PyQt5.QtCore import QThread
 
 from voice_recognition.Index import Index
-
+from stats.statistics import *
 
 class Thread(QThread):
     def __init__(self, timings_info: list):
@@ -37,6 +37,12 @@ class ApiResponse(threading.Thread):
         try:
             text = self.recognizer.recognize_google(self.audio)
             ans, acc = self.index.find_most_similar(text)
+
+            if ans['command_name'] == 'statistic':
+                name = 'twelvedavinci'
+                token = 'RGAPI-548630ff-7321-40fc-a0f9-5f532b52bdbb'
+                get_statistics(name, token)
+                return
             ans['time'] = self.t
             if acc >= 0.4:
                 self.timings_info.append(ans)

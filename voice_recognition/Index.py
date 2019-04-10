@@ -24,4 +24,4 @@ class Index(object):
                 result = k
                 result_v = answer_best_score[k]
 
-        return {"name_and_skill": result, "duration": self.index[result]['duration']}, result_v
+        return {"command_name": result, "duration": self.index[result]['duration']}, result_v
