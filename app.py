@@ -3,7 +3,7 @@ import sys
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication
 
-from views import AppView
+from src.menu.views import AppView
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

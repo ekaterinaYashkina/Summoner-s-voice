@@ -3,8 +3,7 @@ import pickle
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QMainWindow
 
-from widgets import AboutWidget, MainWidget, SettingsWidget, GameInfoWidget, StartWidget
-
+from src.menu.widgets import AboutWidget, MainWidget, SettingsWidget, GameInfoWidget, StartWidget
 
 class AppView(QMainWindow):
     def __init__(self):
@@ -23,6 +22,7 @@ class AppView(QMainWindow):
 
         self.mode = 0
         self.init_ui()
+        self.thread_was_called = False
 
     def check_saved_state(self):
         try:
@@ -68,7 +68,7 @@ class AppView(QMainWindow):
         elif key == 'volume':
             obj.volume.setValue(value)
             obj.volume_value.setText(str(value))
-        print(self.app_state)
+        # print(self.app_state)
 
     def switch_active(self, obj, state):
         obj.activate.setStyleSheet('border-image: url(res/' + \
@@ -79,6 +79,14 @@ class AppView(QMainWindow):
         obj.status.setStyleSheet('border-image: url(res/button_' + \
                                  ('enabled' if state else 'disabled') + '.png);' + \
                                  'color: ' + ('green;' if state else 'red;'))
+
+        if state and not self.thread_was_called:
+            self.thread_was_called = True
+            # Run thread
+
+        if not state and self.thread_was_called:
+            self.thread_was_called = False
+            # Terminate thread
 
     def switch_button(self, obj, state):
         obj.setStyleSheet('border-image: url(res/button_' + \
