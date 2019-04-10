@@ -1,132 +1,164 @@
 {
-  "annie heal": {
-    "duration": 240,
-    "paraphrases": [
-      "Amy Schumer",
-      "Benny Hill",
-      "thank you"
-    ]
-  },
-  "annie ghost": {
-    "duration": 180,
-    "paraphrases": [
-      "any ghosts",
-      "alien ghost",
-      "can you ghost",
-      "and you ghost"
-    ]
-  },
-  "annie barrier": {
-    "duration": 210,
-    "paraphrases": [
-      "anybody here"
-    ]
-  },
-  "annie flash": {
-    "duration": 300,
-    "paraphrases": [
-      "any flesh",
-      "Amy flesh",
-      "can you flash",
-      "and your flesh",
-      "Amy flesh"
-    ]
-  },
-  "annie teleport": {
-    "duration": 360,
-    "paraphrases": [
-      "Aeneid teleport",
-      "can you Deport",
-      "Annie teleport"
-    ]
-  },
-  "annie smite": {
-    "duration": 15,
-    "paraphrases": [
-      "and you smite",
-      "Amy Smart",
-      "Amy Smith"
-    ]
-  },
-  "annie cleanse": {
-    "duration": 210,
-    "paraphrases": [
-      "anglin's",
-      "and you creams",
-      "can you cleanse"
-    ]
-  },
-  "annie ignite": {
-    "duration": 180,
-    "paraphrases": [
-      "Amy ignite",
-      "any good night",
-      "painting night"
-    ]
-  },
-  "veigar heal": {
-    "duration": 240,
-    "paraphrases": [
-      "Reagan Hill",
-      "Viagra Hill",
-      "Quaker Hill"
-    ]
-  },
-  "veigar ghost": {
-    "duration": 180,
-    "paraphrases": [
-      "Reagan ghost",
-      "Lego ghost"
-    ]
-  },
-  "veigar barrier": {
-    "duration": 210,
-    "paraphrases": [
-      "wagon barrier",
-      "Waker barrier",
-      "rhaegar Targaryen",
-      "a regular beer"
-    ]
-  },
-  "veigar flash": {
-    "duration": 300,
-    "paraphrases": [
-      "Waker flesh",
-      "Wake Forest",
-      "Lego Flash"
-    ]
-  },
-  "veigar teleport": {
-    "duration": 360,
-    "paraphrases": [
-      "Lego City Port",
-      "Lego City Board"
-    ]
-  },
-  "veigar smite": {
-    "duration": 15,
-    "paraphrases": [
-      "Ragan Smith",
-      "Lego Smith",
-      "Greg Smith",
-      "Wagner Smith",
-      "juego smite"
-    ]
-  },
-  "veigar cleanse": {
-    "duration": 210,
-    "paraphrases": [
-      "Vega greens",
-      "Reagan cleans",
-      "Lego trains",
-      "Lego planes"
-    ]
-  },
-  "veigar ignite": {
-    "duration": 180,
-    "paraphrases": [
-      "vagrant ignite",
-      "wake ID net"
-    ]
-  }
+    "annie heal": {
+        "duration": 240,
+        "paraphrases": [
+            "Amy Schumer",
+            "Benny Hill",
+            "thank you",
+            "Amy Hill"
+        ]
+    },
+    "annie ghost": {
+        "duration": 180,
+        "paraphrases": [
+            "any ghosts",
+            "alien ghost",
+            "can you ghost",
+            "and you ghost"
+        ]
+    },
+    "annie barrier": {
+        "duration": 210,
+        "paraphrases": [
+            "anybody here"
+        ]
+    },
+    "annie flash": {
+        "duration": 300,
+        "paraphrases": [
+            "any flesh",
+            "Amy flesh",
+            "can you flash",
+            "and your flesh",
+            "can you flash",
+            "any Flash"
+        ]
+    },
+    "annie teleport": {
+        "duration": 360,
+        "paraphrases": [
+            "Aeneid teleport",
+            "can you Deport",
+            "Annie teleport",
+            "and you teleport",
+            "I need to report",
+            "can you teleport"
+        ]
+    },
+    "annie smite": {
+        "duration": 15,
+        "paraphrases": [
+            "and you smite",
+            "Amy Smart",
+            "Amy Smith",
+            "Amy Smart"
+        ]
+    },
+    "annie cleanse": {
+        "duration": 210,
+        "paraphrases": [
+            "anglin's",
+            "and you creams",
+            "can you cleanse",
+            "any claims",
+            "Amy cleans"
+        ]
+    },
+    "annie ignite": {
+        "duration": 180,
+        "paraphrases": [
+            "Amy ignite",
+            "any good night",
+            "painting night",
+            "any night",
+            "I need night"
+        ]
+    },
+    "veigar heal": {
+        "duration": 240,
+        "paraphrases": [
+            "Reagan Hill",
+            "Viagra Hill",
+            "Quaker Hill",
+            "regular hue"
+        ]
+    },
+    "veigar ghost": {
+        "duration": 180,
+        "paraphrases": [
+            "Reagan ghost",
+            "Lego ghost",
+            "Ranger ghost",
+            "regular ghost"
+        ]
+    },
+    "veigar barrier": {
+        "duration": 210,
+        "paraphrases": [
+            "wagon barrier",
+            "Waker barrier",
+            "rhaegar Targaryen",
+            "a regular beer",
+            "wake up Warrior",
+            "legal barrier"
+        ]
+    },
+    "veigar flash": {
+        "duration": 300,
+        "paraphrases": [
+            "Waker flesh",
+            "Wake Forest",
+            "Lego Flash",
+            "a regular flash"
+        ]
+    },
+    "veigar teleport": {
+        "duration": 360,
+        "paraphrases": [
+            "Lego City Port",
+            "Lego City Board",
+            "Veigar teleport",
+            "Waker teleport"
+        ]
+    },
+    "veigar smite": {
+        "duration": 15,
+        "paraphrases": [
+            "Ragan Smith",
+            "Lego Smith",
+            "Greg Smith",
+            "Wagner Smith",
+            "juego smite",
+            "Ragan Smith",
+            "Veigar smite",
+            "Vanguard smite"
+        ]
+    },
+    "veigar cleanse": {
+        "duration": 210,
+        "paraphrases": [
+            "Vega greens",
+            "Reagan cleans",
+            "Lego trains",
+            "Lego planes",
+            "regular cleans",
+            "reagor cleans"
+        ]
+    },
+    "veigar ignite": {
+        "duration": 180,
+        "paraphrases": [
+            "vagrant ignite",
+            "wake ID net",
+            "Waker ignite",
+            "Reggae night",
+            "Wagar ignite"
+        ]
+    },
+    "statistic": {
+        "duration": -1,
+        "paraphrases": [
+            "sticky stick"
+        ]
+    }
 }

@@ -3,7 +3,7 @@ import speech_recognition as sr
 import json
 
 if __name__ == '__main__':
-    with open('phrases.json') as f:
+    with open('data/phrases.json') as f:
         phrases = dict(json.load(f))
 
     r = sr.Recognizer()
@@ -24,5 +24,5 @@ if __name__ == '__main__':
                     print("Api Error")
                     time.sleep(2)
 
-    with open("phrases.json", "w") as write_file:
+    with open("data/phrases.json", "w") as write_file:
         json.dump(phrases, write_file, indent=4)

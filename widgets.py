@@ -182,7 +182,7 @@ class GameInfoWidget(QWidget):
                 removing_elements.append(e)
             else:
                 str_to_print.append(
-                    str(e['name_and_skill']) + " " + str(int(e['duration']) - int(time.time() - e['time'])))
+                    str(e['command_name']) + " " + str(int(e['duration']) - int(time.time() - e['time'])))
                 str_to_print.append('\n')
         for e in removing_elements:
             self.timings_info.remove(e)
