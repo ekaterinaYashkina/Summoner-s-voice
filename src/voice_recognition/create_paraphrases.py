@@ -1,11 +1,9 @@
 import time
 import speech_recognition as sr
-import sys
 import json
-import pprint
 
 if __name__ == '__main__':
-    with open('phrases2.json') as f:
+    with open('phrases.json') as f:
         phrases = dict(json.load(f))
 
     r = sr.Recognizer()
@@ -13,7 +11,7 @@ if __name__ == '__main__':
     with sr.Microphone() as source:
         r.adjust_for_ambient_noise(source)
         for phrase in phrases:
-            for i in range(2):
+            for i in range(3):
 
                 print("Please say: ", phrase)
                 print("Listening ...")
@@ -27,5 +25,5 @@ if __name__ == '__main__':
                     print("Api Error")
                     time.sleep(2)
 
-    with open("phrases2.json", "w") as write_file:
+    with open("phrases.json", "w") as write_file:
         json.dump(phrases, write_file, indent=4)

@@ -3,9 +3,9 @@ import pickle
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QMainWindow
 
-from test import MyThread
-from widgets import AboutWidget, MainWidget, SettingsWidget, GameInfoWidget, StartWidget
 
+from src.menu.widgets import AboutWidget, MainWidget, SettingsWidget, GameInfoWidget, StartWidget
+from src.voice_recognition.MyThread import MyThread
 
 class AppView(QMainWindow):
     def __init__(self):
@@ -22,12 +22,20 @@ class AppView(QMainWindow):
                 'volume': 50,
             }
 
+        self.list_with_info = []
+
         self.mode = 0
 
         self.timings_list = []
         self.my_thread = MyThread(self.timings_list)
 
         self.init_ui()
+
+        self.thread = MyThread(self.list_with_info)
+
+        self.thread_was_called = False
+
+
 
     def check_saved_state(self):
         try:
@@ -85,10 +93,16 @@ class AppView(QMainWindow):
                                  ('enabled' if state else 'disabled') + '.png);' + \
                                  'color: ' + ('green;' if state else 'red;'))
 
-        if state and not self.my_thread.isRunning():
-            self.my_thread.start()
-        elif not state:
-            self.my_thread.terminate()
+
+        if state and not self.thread_was_called:
+            self.thread_was_called = True
+            # Run thread
+            self.thread.start()
+        if not state and self.thread_was_called:
+            self.thread_was_called = False
+            # Terminate thread
+            self.thread.terminate()
+
 
     def switch_button(self, obj, state):
         obj.setStyleSheet('border-image: url(res/button_' + \
@@ -146,7 +160,8 @@ class AppView(QMainWindow):
         return settings
 
     def get_gameinfo(self):
-        gameinfo = GameInfoWidget(self.timings_list)
+
+        gameinfo = GameInfoWidget(self.list_with_info)
         gameinfo.to_gameinfo.setDefault(True)
 
         gameinfo.to_menu.clicked.connect(lambda: self.switch_layout(0))
