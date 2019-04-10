@@ -50,14 +50,13 @@ class ApiResponse(threading.Thread):
                 token = 'RGAPI-548630ff-7321-40fc-a0f9-5f532b52bdbb'
                 mutex.acquire()
                 get_statistics(name, token)
+                mutex.release()
                 return
             ans['time'] = self.t
             if acc >= 0.4:
                 self.timings_info.append(ans)
         except Exception:
             print("Google API error!")
-        finally:
-            mutex.release()
 
 
 class ThreadEat(threading.Thread):
