@@ -9,11 +9,12 @@ from stats.healthcare import *
 
 
 class Thread(QThread):
-    def __init__(self, timings_info: list):
+    def __init__(self, timings_info: list, app_state):
         super().__init__()
         self.index = Index()
         self.timings_info = timings_info
         self.recognizer = sr.Recognizer()
+        self.app_state = app_state
 
     def run(self):
         with sr.Microphone() as source:
@@ -22,18 +23,19 @@ class Thread(QThread):
             while True:
                 audio = self.recognizer.listen(source=source)
                 t = time.time()
-                response = ApiResponse(self.index, self.timings_info, self.recognizer, audio, t)
+                response = ApiResponse(self.index, self.timings_info, self.recognizer, audio, t, self.app_state)
                 response.start()
 
 
 class ApiResponse(threading.Thread):
-    def __init__(self, index, timings_info, recognizer, audio, t):
+    def __init__(self, index, timings_info, recognizer, audio, t, app_state):
         super().__init__()
         self.index = index
         self.timings_info = timings_info
         self.recognizer = recognizer
         self.audio = audio
         self.t = t
+        self.app_state = app_state
 
     def run(self):
         try:
@@ -41,7 +43,7 @@ class ApiResponse(threading.Thread):
             ans, acc = self.index.find_most_similar(text)
 
             if ans['command_name'] == 'statistic':
-                name = 'twelvedavinci'
+                name = self.app_state['user_name']
                 token = 'RGAPI-548630ff-7321-40fc-a0f9-5f532b52bdbb'
                 get_statistics(name, token)
                 return
@@ -54,6 +56,7 @@ class ApiResponse(threading.Thread):
 
 mutex = threading.Lock()
 
+
 class ThreadEat(threading.Thread):
     def __init__(self):
         super().__init__()
@@ -62,6 +65,7 @@ class ThreadEat(threading.Thread):
         mutex.acquire()
         remind_to_eat()
         mutex.release()
+
 
 class ThreadRest(threading.Thread):
     def __init__(self):

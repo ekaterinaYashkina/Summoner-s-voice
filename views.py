@@ -24,7 +24,7 @@ class AppView(QMainWindow):
         self.mode = 0
 
         self.timings_info = []
-        self.my_thread = Thread(self.timings_info)
+        self.my_thread = Thread(self.timings_info, self.app_state)
 
         self.init_ui()
 
@@ -190,8 +190,8 @@ class AppView(QMainWindow):
 
     def run_or_disable_timers(self, run):
         if run:
-            self.timer_eat.start(10000)
-            self.timer_rest.start(5000)
+            self.timer_eat.start(60000*1)
+            self.timer_rest.start(60000*2)
         else:
             self.timer_eat.stop()
             self.timer_rest.stop()
