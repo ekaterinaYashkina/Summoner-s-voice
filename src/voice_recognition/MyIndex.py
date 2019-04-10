@@ -1,11 +1,11 @@
 import textdistance
 import json
-
+import os
 
 class MyIndex(object):
 
     def __init__(self):
-        with open('phrases.json') as f:
+        with open('../voice_recognition/phrases.json') as f:
             self.index = dict(json.load(f))
 
     def find_most_similar(self, query):
