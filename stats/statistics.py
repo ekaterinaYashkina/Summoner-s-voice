@@ -5,6 +5,7 @@ import requests
 from gtts import gTTS
 
 from stats import champions_data
+from tempfile import TemporaryFile
 
 
 def get_statistics(name, token):
@@ -129,9 +130,14 @@ def get_statistics(name, token):
     tts.save("advice.mp3")
 
     pygame.mixer.init()
-    pygame.mixer.music.load("advice.mp3")
-    pygame.mixer.music.set_volume(1.0)
+    sf = TemporaryFile()
+    tts.write_to_fp(sf)
+    sf.seek(0)
+    pygame.mixer.music.load(sf)
     pygame.mixer.music.play()
+    # pygame.mixer.music.load("advice.mp3")
+    # pygame.mixer.music.set_volume(1.0)
+    # pygame.mixer.music.play()
 
     while pygame.mixer.music.get_busy():
         pass
