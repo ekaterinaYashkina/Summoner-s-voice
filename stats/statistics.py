@@ -1,15 +1,10 @@
-import json
-import requests
 import os
 
-import champions_data
-from io import BytesIO
-from gtts import gTTS
 import pygame
+import requests
+from gtts import gTTS
 
-name = 'twelvedavinci'
-token = 'RGAPI-548630ff-7321-40fc-a0f9-5f532b52bdbb'
-
+from stats import champions_data
 
 
 def get_statistics(name, token):
@@ -20,22 +15,23 @@ def get_statistics(name, token):
     #     "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
     #     "X-Riot-Token": "RGAPI-548630ff-7321-40fc-a0f9-5f532b52bdbb",
     #     "Accept-Language": "ru",
-    #     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.3 Safari/605.1.15"
+    #     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/605.1.15 (KHTML, like Gecko) " + \
+    #                   "Version/12.0.3 Safari/605.1.15 "
     # }
     headers = {
         "Origin": "https://developer.riotgames.com",
         "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
         "X-Riot-Token": token,
         "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " + \
+                      "Chrome/71.0.3578.98 Safari/537.36 "
     }
 
-
-    url = 'https://'+ region +'.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + name
+    url = 'https://' + region + '.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + name
     user_resp = requests.get(url=url, headers=headers)
     reg = 0
     while user_resp.status_code == 404:
-        if reg==len(regions):
+        if reg == len(regions):
             phrase = "My son!!! I can not find you among my summoners. You might have inout the wrong name"
             tts = gTTS(phrase, 'en')
             tts.save("advice.mp3")
@@ -44,22 +40,22 @@ def get_statistics(name, token):
             pygame.mixer.music.load("advice.mp3")
             pygame.mixer.music.set_volume(1.0)
             pygame.mixer.music.play()
-            return ;
+            return
         region = regions[reg]
         url = 'https://' + region + '.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + name
         user_resp = requests.get(url=url, headers=headers)
-        reg+=1
+        reg += 1
     user = user_resp.json()
 
-    url = 'https://'+region+'.api.riotgames.com/lol/match/v4/matchlists/by-account/' + str(user['accountId'])
+    url = 'https://' + region + '.api.riotgames.com/lol/match/v4/matchlists/by-account/' + str(user['accountId'])
     matches_resp = requests.get(url=url, headers=headers)
     matches = matches_resp.json()
 
-    url = 'https://'+region+'.api.riotgames.com/lol/match/v4/matches/' + str(matches['matches'][0]['gameId'])
+    url = 'https://' + region + '.api.riotgames.com/lol/match/v4/matches/' + str(matches['matches'][0]['gameId'])
     match_resp = requests.get(url=url, headers=headers)
     match = match_resp.json()
 
-    participantIdentities = match['participantIdentities']
+    participant_identities = match['participantIdentities']
     participants = match['participants']
 
     stats_data = ''
@@ -71,13 +67,12 @@ def get_statistics(name, token):
         champions_master_total = 0
         champions_master_current = 0
         team = participants[i]['teamId']
-        cur_name = participantIdentities[i]['player']['summonerName']
+        cur_name = participant_identities[i]['player']['summonerName']
         if cur_name.lower() == name:
             my_team = team
-        if 'summonerId' in participantIdentities[i]['player'].keys():
-            url = 'https://'+region+'.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/' + str(
-                participantIdentities[i]['player']['summonerId'])
-
+        if 'summonerId' in participant_identities[i]['player'].keys():
+            url = 'https://' + region + '.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/' + \
+                  str(participant_identities[i]['player']['summonerId'])
 
             champions_master_resp = requests.get(url=url, headers=headers)
             champions_master = champions_master_resp.json()
@@ -102,15 +97,14 @@ def get_statistics(name, token):
             teams[team]['min']['name'] = champion_name
             teams[team]['min']['m_points'] = champions_master_total
         else:
-            if cur_name!=name:
-                if teams[team]['max']['m_points']<champions_master_total:
+            if cur_name != name:
+                if teams[team]['max']['m_points'] < champions_master_total:
                     teams[team]['max']['name'] = champion_name
                     teams[team]['max']['m_points'] = champions_master_total
 
-                if teams[team]['min']['m_points']>champions_master_total:
+                if teams[team]['min']['m_points'] > champions_master_total:
                     teams[team]['min']['name'] = champion_name
                     teams[team]['min']['m_points'] = champions_master_total
-
 
         # stats_data_simple = champion_name + ' ' + \
         #               'total mastery point: ' + str(champions_master_total) + ' ' + \
@@ -120,16 +114,17 @@ def get_statistics(name, token):
         # tts = gTTS(text=stats_data_simple, lang='en')
         # tts.save(str(i)+".wav")
 
-        #print(i, champion_name, champions_master_total, champions_master_current)
+        # print(i, champion_name, champions_master_total, champions_master_current)
 
+    enemy_team = None
     for k in teams.keys():
-        if k!=my_team:
+        if k != my_team:
             enemy_team = k
     if teams[enemy_team]['max']['m_points'] == 0:
         phrase = "My son!!! Now you have played with bots, sometimes simple start leads to the great actions!!!"
     else:
-        phrase = "My son!!!! Be careful of player "+ teams[enemy_team]['max']['name']+"next time, he is the master!"
-    phrase += "Next time avoid playing with player "+teams[my_team]['min']['name']+"! He is the least experienced."
+        phrase = "My son!!!! Be careful of player " + teams[enemy_team]['max']['name'] + "next time, he is the master!"
+    phrase += "Next time avoid playing with player " + teams[my_team]['min']['name'] + "! He is the least experienced."
     tts = gTTS(phrase, 'en')
     tts.save("advice.mp3")
 
@@ -138,7 +133,7 @@ def get_statistics(name, token):
     pygame.mixer.music.set_volume(1.0)
     pygame.mixer.music.play()
 
-    while pygame.mixer.music.get_busy() == True:
+    while pygame.mixer.music.get_busy():
         pass
     # player.play()
     #
@@ -149,4 +144,7 @@ def get_statistics(name, token):
     return phrase
     # print(json.dumps(match, sort_keys=True, indent=2, separators=(',', ': ')))
 
-print(get_statistics(name,token))
+
+name = 'twelvedavinci'
+token = 'RGAPI-548630ff-7321-40fc-a0f9-5f532b52bdbb'
+print(get_statistics(name, token))

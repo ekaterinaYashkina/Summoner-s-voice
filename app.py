@@ -3,7 +3,7 @@ import sys
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication
 
-from src.menu.views import AppView
+from views import AppView
 
 if __name__ == '__main__':
     # TODO #1 polish the UI

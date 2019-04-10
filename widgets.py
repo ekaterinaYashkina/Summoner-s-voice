@@ -1,6 +1,6 @@
 import time
-from PyQt5.QtCore import Qt, QTimer
 
+from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtWidgets import QWidget, QPushButton, QSlider, QHBoxLayout, QVBoxLayout, QLabel, QTextEdit
 
 
@@ -149,22 +149,24 @@ class AboutWidget(QWidget):
 
 
 class GameInfoWidget(QWidget):
-    def __init__(self, l: list):
+    def __init__(self, timings_info: list):
         super().__init__()
         self.to_menu = QPushButton('Menu')
         self.to_gameinfo = QPushButton('Game Info')
         self.info = QLabel()
-        self.list_with_info = l
-        self.init_ui()
+        self.timings_info = timings_info
 
         self.timer = QTimer(self)
-        self.timer.timeout.connect(self.showInfo)
+        self.timer.timeout.connect(self.show_info)
         self.timer.start(1000)
+
+        self.init_ui()
 
     def init_ui(self):
         self.info.setAlignment(Qt.AlignTop)
         self.info.setStyleSheet('color: white')
-        # self.info.setText('Here is the info about timings')
+        # if len(self.timings_list) == 0:
+        #     self.info.setText('Here is the info about timings')
 
         vbox = QVBoxLayout()
         vbox.addLayout(get_hbox_top(self.to_menu, self.to_gameinfo))
@@ -172,10 +174,10 @@ class GameInfoWidget(QWidget):
 
         self.setLayout(vbox)
 
-    def showInfo(self):
+    def show_info(self):
         str_to_print = [str(time.ctime()), '\n']
         removing_elements = []
-        for e in self.list_with_info:
+        for e in self.timings_info:
             if 0 >= int(e['duration']) - int(time.time() - e['time']):
                 removing_elements.append(e)
             else:
@@ -183,5 +185,5 @@ class GameInfoWidget(QWidget):
                     str(e['name_and_skill']) + " " + str(int(e['duration']) - int(time.time() - e['time'])))
                 str_to_print.append('\n')
         for e in removing_elements:
-            self.list_with_info.remove(e)
+            self.timings_info.remove(e)
         self.info.setText(''.join(str_to_print))
