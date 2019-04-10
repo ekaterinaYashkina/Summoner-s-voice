@@ -59,14 +59,15 @@ class ThreadEat(threading.Thread):
         super().__init__()
 
     def run(self):
-        mutex.locked()
+        mutex.acquire()
         remind_to_eat()
         mutex.release()
+
 class ThreadRest(threading.Thread):
     def __init__(self):
         super().__init__()
 
     def run(self):
-        mutex.locked()
+        mutex.acquire()
         remind_to_rest()
         mutex.release()
