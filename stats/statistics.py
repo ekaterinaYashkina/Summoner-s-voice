@@ -35,11 +35,11 @@ def get_statistics(name, token):
         if reg == len(regions):
             phrase = "My son!!! I can not find you among my summoners. You might have inout the wrong name"
             tts = gTTS(phrase, 'en')
-            tts.save("advice.mp3")
-
-            pygame.mixer.init()
-            pygame.mixer.music.load("advice.mp3")
-            pygame.mixer.music.set_volume(1.0)
+            sf = TemporaryFile()
+            tts.write_to_fp(sf)
+            sf.seek(0)
+            pygame.mixer.music.load(sf)
+            pygame.mixer.music.set_volume(1)
             pygame.mixer.music.play()
             return
         region = regions[reg]
@@ -88,7 +88,6 @@ def get_statistics(name, token):
         for champion in champions_data.champions:
             if int(champion['key']) == participants[i]['championId']:
                 champion_name = champion['name']
-        print(champion_name)
         if team not in teams.keys():
             teams[team] = {}
             teams[team]['max'] = {}

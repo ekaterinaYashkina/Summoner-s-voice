@@ -26,10 +26,10 @@ def remind_to_eat():
         pass
     # player.play()
     #
-    if os.path.exists("eat.mp3"):
-        os.remove("eat.mp3")
-    else:
-        print("The file does not exist")
+    # if os.path.exists("eat.mp3"):
+    #     os.remove("eat.mp3")
+    # else:
+    #     print("The file does not exist")
     return phrase
 
 
@@ -52,10 +52,10 @@ def remind_to_rest():
         pass
     # player.play()
     #
-    if os.path.exists("sleep.mp3"):
-        os.remove("sleep.mp3")
-    else:
-        print("The file does not exist")
+    # if os.path.exists("sleep.mp3"):
+    #     os.remove("sleep.mp3")
+    # else:
+    #     print("The file does not exist")
     return phrase
 
 
