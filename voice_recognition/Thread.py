@@ -27,6 +27,9 @@ class Thread(QThread):
                 response.start()
 
 
+mutex = threading.Lock()
+
+
 class ApiResponse(threading.Thread):
     def __init__(self, index, timings_info, recognizer, audio, t, app_state):
         super().__init__()
@@ -45,6 +48,7 @@ class ApiResponse(threading.Thread):
             if ans['command_name'] == 'statistic':
                 name = self.app_state['user_name']
                 token = 'RGAPI-548630ff-7321-40fc-a0f9-5f532b52bdbb'
+                mutex.acquire()
                 get_statistics(name, token)
                 return
             ans['time'] = self.t
@@ -52,9 +56,8 @@ class ApiResponse(threading.Thread):
                 self.timings_info.append(ans)
         except Exception:
             print("Google API error!")
-
-
-mutex = threading.Lock()
+        finally:
+            mutex.release()
 
 
 class ThreadEat(threading.Thread):
