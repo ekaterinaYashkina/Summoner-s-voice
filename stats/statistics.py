@@ -88,6 +88,7 @@ def get_statistics(name, token):
         for champion in champions_data.champions:
             if int(champion['key']) == participants[i]['championId']:
                 champion_name = champion['name']
+                print(champion_name)
         if team not in teams.keys():
             teams[team] = {}
             teams[team]['max'] = {}
@@ -149,3 +150,8 @@ def get_statistics(name, token):
     #     print("The file does not exist")
     # return phrase
     # print(json.dumps(match, sort_keys=True, indent=2, separators=(',', ': ')))
+#
+# name = 'twelvedavinci'
+# token = 'RGAPI-548630ff-7321-40fc-a0f9-5f532b52bdbb'
+# print("Statistic")
+# get_statistics(name, token)
