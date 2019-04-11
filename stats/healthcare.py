@@ -6,7 +6,7 @@ from tempfile import TemporaryFile
 
 
 def remind_to_eat():
-    phrase = "My son, Food is not just eating energy. It's an experience. Please, have a snack."
+    phrase = "My child, Food is not just eating energy. It's an experience. Please, have a snack."
     tts = gTTS(phrase, 'en')
     # tts.save("eat.mp3")
 
@@ -34,7 +34,7 @@ def remind_to_eat():
 
 
 def remind_to_rest():
-    phrase = "My son, Refresh and renew yourself, your body, your mind, your spirit. Then get back to game."
+    phrase = "My child, Refresh and renew yourself, your body, your mind, your spirit. Then get back to game."
     tts = gTTS(phrase, 'en')
     # tts.save("sleep.mp3")
 
