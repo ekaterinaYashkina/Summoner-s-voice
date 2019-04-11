@@ -88,7 +88,7 @@ def get_statistics(name, token):
         for champion in champions_data.champions:
             if int(champion['key']) == participants[i]['championId']:
                 champion_name = champion['name']
-                print(champion_name)
+                # print(champion_name)
         if team not in teams.keys():
             teams[team] = {}
             teams[team]['max'] = {}

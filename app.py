@@ -1,21 +1,24 @@
 import sys
 
-from PyQt5 import QtCore
+from PyQt5.QtCore import QTimer
 from PyQt5.QtWidgets import QApplication
 
-from views import AppView
+from views import AppView, SplashView
+
+
+def on_close():
+    app_view.show()
+    splash_view.close()
+
 
 if __name__ == '__main__':
-    # TODO #1 polish the UI
-    # TODO #2 add close button
-    # TODO #3 add splash screen
     app = QApplication(sys.argv)
+
+    splash_view = SplashView()
+    splash_view.show()
+
     app_view = AppView()
-    app_view.setObjectName('AppView')
-    flags = QtCore.Qt.WindowFlags(
-        QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint  # | QtCore.Qt.SplashScreen
-    )
-    app_view.setWindowFlags(flags)
-    app_view.setStyleSheet('#AppView { border-image: url(res/border.png); }')
-    app_view.show()
+
+    QTimer.singleShot(3000, on_close)
+
     sys.exit(app.exec_())

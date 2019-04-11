@@ -25,18 +25,20 @@ class Thread(QThread):
                 audio = self.recognizer.listen(source=source, phrase_time_limit=10)
                 print("PROCESSING")
                 for thread in threading.enumerate():
-                    print('    '+thread.name)
+                    print('    ' + thread.name)
                 t = time.time()
                 response = ApiResponse(self.index, self.timings_info, self.recognizer, audio, t, self.app_state)
                 response.setDaemon(True)
 
                 response.start()
-                i+=1
+                i += 1
                 print(i)
 
-mutex = threading.Lock()
 
+mutex = threading.Lock()
 mutex2 = threading.Lock()
+
+
 class ApiResponse(threading.Thread):
     def __init__(self, index, timings_info, recognizer, audio, t, app_state):
         super().__init__()
@@ -66,7 +68,6 @@ class ApiResponse(threading.Thread):
         except Exception:
             print("Google API error!")
         mutex2.release()
-
 
 
 class ThreadEat(threading.Thread):

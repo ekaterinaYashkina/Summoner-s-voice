@@ -1,7 +1,7 @@
 import time
 
 from PyQt5.QtCore import Qt, QTimer
-from PyQt5.QtWidgets import QWidget, QPushButton, QSlider, QHBoxLayout, QVBoxLayout, QLabel, QTextEdit
+from PyQt5.QtWidgets import QWidget, QPushButton, QSlider, QHBoxLayout, QVBoxLayout, QLabel, QLineEdit
 
 
 def get_hbox_top(to_menu, to_gameinfo):
@@ -13,27 +13,6 @@ def get_hbox_top(to_menu, to_gameinfo):
     return hbox_top
 
 
-class StartWidget(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.user_name = QTextEdit()
-        self.to_main = QPushButton('Submit')
-        # self.info = QLabel()
-
-        self.init_ui()
-
-    def init_ui(self):
-        # self.info.setAlignment(Qt.AlignTop)
-        # self.info.setStyleSheet('color: white')
-        # self.info.setText('Here is the info about timings')
-
-        vbox = QVBoxLayout()
-        vbox.addWidget(self.user_name)
-        vbox.addWidget(self.to_main)
-
-        self.setLayout(vbox)
-
-
 class PushButton(QPushButton):
     def __init__(self, text=None, x=48, y=48, img_path='button_disabled.png', color='white'):
         super().__init__(text)
@@ -41,6 +20,45 @@ class PushButton(QPushButton):
         self.setFixedSize(x, y)
         self.setStyleSheet(f'border-image: url(res/{img_path});' + \
                            f'color: {color};')
+
+
+class StartWidget(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.user_name = QLineEdit()
+        self.warning = QLabel()
+        self.to_main = PushButton('Submit', int(110 * 1.5), int(23 * 1.5), 'button.png')
+        self.filler = PushButton(img_path='filler.png')
+        self.to_quit = PushButton(x=80, y=80, img_path='logo.png')
+
+        self.init_ui()
+
+    def init_ui(self):
+        self.warning.setAlignment(Qt.AlignVCenter)
+        self.warning.setStyleSheet('color: red;')
+
+        vbox = QVBoxLayout()
+        vbox.addStretch()
+
+        vbox.addWidget(self.user_name)
+        vbox.addWidget(self.warning)
+
+        hbox = QHBoxLayout()
+        hbox.addWidget(self.to_main)
+
+        vbox.addLayout(hbox)
+        vbox.addStretch()
+
+        hbox = QHBoxLayout()
+        hbox.addWidget(self.filler)
+        hbox.addStretch()
+        hbox.addWidget(self.to_quit)
+        hbox.addStretch()
+        hbox.addWidget(self.filler)
+
+        vbox.addLayout(hbox)
+
+        self.setLayout(vbox)
 
 
 class MainWidget(QWidget):
@@ -51,6 +69,7 @@ class MainWidget(QWidget):
         self.activate = PushButton(x=250, y=250, img_path='deactivated.png')
         self.status = PushButton('DEACTIVATED', int(167 * 1.5), int(33 * 1.5), 'button_disabled.png', 'red')
         self.to_about = PushButton(img_path='about.png')
+        self.to_quit = PushButton(x=80, y=80, img_path='logo.png')
         self.to_settings = PushButton(img_path='settings.png')
 
         self.init_ui()
@@ -58,6 +77,8 @@ class MainWidget(QWidget):
     def init_ui(self):
         hbox = QHBoxLayout()
         hbox.addWidget(self.to_about)
+        hbox.addStretch()
+        hbox.addWidget(self.to_quit)
         hbox.addStretch()
         hbox.addWidget(self.to_settings)
 
@@ -78,7 +99,8 @@ class SettingsWidget(QWidget):
         self.to_gameinfo = QPushButton('Game Info')
         self.voice_stats = PushButton('Voice statistics', int(167 * 1.5), int(33 * 1.5))
         self.health_care = PushButton('Health care', int(167 * 1.5), int(33 * 1.5))
-        self.to_about = PushButton(img_path='about.png')
+        self.filler = PushButton(img_path='filler.png')
+        self.to_quit = PushButton(x=80, y=80, img_path='logo.png')
         self.to_main = PushButton(img_path='back.png')
         self.volume_label = QLabel('Volume: ')
         self.volume_value = QLabel()
@@ -95,6 +117,9 @@ class SettingsWidget(QWidget):
         self.volume.setSingleStep(1)
 
         hbox = QHBoxLayout()
+        hbox.addWidget(self.filler)
+        hbox.addStretch()
+        hbox.addWidget(self.to_quit)
         hbox.addStretch()
         hbox.addWidget(self.to_main)
 
@@ -122,6 +147,8 @@ class AboutWidget(QWidget):
         self.to_menu = QPushButton('Menu')
         self.to_gameinfo = QPushButton('Game Info')
         self.about = QLabel()
+        self.filler = PushButton(img_path='filler.png')
+        self.to_quit = PushButton(x=80, y=80, img_path='logo.png')
         self.to_main = PushButton(img_path='back.png')
 
         self.init_ui()
@@ -136,8 +163,11 @@ class AboutWidget(QWidget):
                            'Mikhail Fadeev')
 
         hbox = QHBoxLayout()
-        hbox.addStretch()
         hbox.addWidget(self.to_main)
+        hbox.addStretch()
+        hbox.addWidget(self.to_quit)
+        hbox.addStretch()
+        hbox.addWidget(self.filler)
 
         vbox = QVBoxLayout()
         vbox.addLayout(get_hbox_top(self.to_menu, self.to_gameinfo))
@@ -155,22 +185,31 @@ class GameInfoWidget(QWidget):
         self.to_gameinfo = QPushButton('Game Info')
         self.info = QLabel()
         self.timings_info = timings_info
+        self.filler = PushButton(img_path='filler.png')
+        self.to_quit = PushButton(x=80, y=80, img_path='logo.png')
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.show_info)
-        self.timer.start(1000)
+        self.timer.start(0)
 
         self.init_ui()
 
     def init_ui(self):
         self.info.setAlignment(Qt.AlignTop)
         self.info.setStyleSheet('color: white')
-        # if len(self.timings_list) == 0:
-        #     self.info.setText('Here is the info about timings')
+
+        hbox = QHBoxLayout()
+        hbox.addWidget(self.filler)
+        hbox.addStretch()
+        hbox.addWidget(self.to_quit)
+        hbox.addStretch()
+        hbox.addWidget(self.filler)
 
         vbox = QVBoxLayout()
         vbox.addLayout(get_hbox_top(self.to_menu, self.to_gameinfo))
         vbox.addWidget(self.info)
+        vbox.addStretch()
+        vbox.addLayout(hbox)
 
         self.setLayout(vbox)
 
