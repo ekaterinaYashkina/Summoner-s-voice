@@ -1,164 +1,292 @@
 {
-    "annie heal": {
-        "duration": 240,
-        "paraphrases": [
-            "Amy Schumer",
-            "Benny Hill",
-            "thank you",
-            "Amy Hill"
-        ]
-    },
-    "annie ghost": {
-        "duration": 180,
-        "paraphrases": [
-            "any ghosts",
-            "alien ghost",
-            "can you ghost",
-            "and you ghost"
-        ]
-    },
-    "annie barrier": {
-        "duration": 210,
-        "paraphrases": [
-            "anybody here"
-        ]
-    },
-    "annie flash": {
-        "duration": 300,
-        "paraphrases": [
-            "any flesh",
-            "Amy flesh",
-            "can you flash",
-            "and your flesh",
-            "can you flash",
-            "any Flash"
-        ]
-    },
-    "annie teleport": {
-        "duration": 360,
-        "paraphrases": [
-            "Aeneid teleport",
-            "can you Deport",
-            "Annie teleport",
-            "and you teleport",
-            "I need to report",
-            "can you teleport"
-        ]
-    },
-    "annie smite": {
-        "duration": 15,
-        "paraphrases": [
-            "and you smite",
-            "Amy Smart",
-            "Amy Smith",
-            "Amy Smart"
-        ]
-    },
-    "annie cleanse": {
-        "duration": 210,
-        "paraphrases": [
-            "anglin's",
-            "and you creams",
-            "can you cleanse",
-            "any claims",
-            "Amy cleans"
-        ]
-    },
-    "annie ignite": {
-        "duration": 180,
-        "paraphrases": [
-            "Amy ignite",
-            "any good night",
-            "painting night",
-            "any night",
-            "I need night"
-        ]
-    },
-    "veigar heal": {
-        "duration": 240,
-        "paraphrases": [
-            "Reagan Hill",
-            "Viagra Hill",
-            "Quaker Hill",
-            "regular hue"
-        ]
-    },
-    "veigar ghost": {
-        "duration": 180,
-        "paraphrases": [
-            "Reagan ghost",
-            "Lego ghost",
-            "Ranger ghost",
-            "regular ghost"
-        ]
-    },
-    "veigar barrier": {
-        "duration": 210,
-        "paraphrases": [
-            "wagon barrier",
-            "Waker barrier",
-            "rhaegar Targaryen",
-            "a regular beer",
-            "wake up Warrior",
-            "legal barrier"
-        ]
-    },
-    "veigar flash": {
-        "duration": 300,
-        "paraphrases": [
-            "Waker flesh",
-            "Wake Forest",
-            "Lego Flash",
-            "a regular flash"
-        ]
-    },
-    "veigar teleport": {
-        "duration": 360,
-        "paraphrases": [
-            "Lego City Port",
-            "Lego City Board",
-            "Veigar teleport",
-            "Waker teleport"
-        ]
-    },
-    "veigar smite": {
-        "duration": 15,
-        "paraphrases": [
-            "Ragan Smith",
-            "Lego Smith",
-            "Greg Smith",
-            "Wagner Smith",
-            "juego smite",
-            "Ragan Smith",
-            "Veigar smite",
-            "Vanguard smite"
-        ]
-    },
-    "veigar cleanse": {
-        "duration": 210,
-        "paraphrases": [
-            "Vega greens",
-            "Reagan cleans",
-            "Lego trains",
-            "Lego planes",
-            "regular cleans",
-            "reagor cleans"
-        ]
-    },
-    "veigar ignite": {
-        "duration": 180,
-        "paraphrases": [
-            "vagrant ignite",
-            "wake ID net",
-            "Waker ignite",
-            "Reggae night",
-            "Wagar ignite"
-        ]
-    },
-    "statistic": {
-        "duration": -1,
-        "paraphrases": [
-            "sticky stick"
-        ]
-    }
+  "annie heal": {
+    "duration": 240,
+    "paraphrases": [
+      "Amy Schumer",
+      "Benny Hill",
+      "thank you",
+      "Amy Hill"
+    ]
+  },
+  "annie ghost": {
+    "duration": 180,
+    "paraphrases": [
+      "any ghosts",
+      "alien ghost",
+      "can you ghost",
+      "and you ghost"
+    ]
+  },
+  "annie barrier": {
+    "duration": 210,
+    "paraphrases": [
+      "anybody here"
+    ]
+  },
+  "annie flash": {
+    "duration": 300,
+    "paraphrases": [
+      "any flesh",
+      "Amy flesh",
+      "can you flash",
+      "and your flesh",
+      "can you flash",
+      "any Flash"
+    ]
+  },
+  "annie teleport": {
+    "duration": 360,
+    "paraphrases": [
+      "Aeneid teleport",
+      "can you Deport",
+      "Annie teleport",
+      "and you teleport",
+      "I need to report",
+      "can you teleport"
+    ]
+  },
+  "annie smite": {
+    "duration": 15,
+    "paraphrases": [
+      "and you smite",
+      "Amy Smart",
+      "Amy Smith",
+      "Amy Smart"
+    ]
+  },
+  "annie cleanse": {
+    "duration": 210,
+    "paraphrases": [
+      "anglin's",
+      "and you creams",
+      "can you cleanse",
+      "any claims",
+      "Amy cleans"
+    ]
+  },
+  "annie ignite": {
+    "duration": 180,
+    "paraphrases": [
+      "Amy ignite",
+      "any good night",
+      "painting night",
+      "any night",
+      "I need night"
+    ]
+  },
+  "veigar heal": {
+    "duration": 240,
+    "paraphrases": [
+      "Reagan Hill",
+      "Viagra Hill",
+      "Quaker Hill",
+      "regular hue"
+    ]
+  },
+  "veigar ghost": {
+    "duration": 180,
+    "paraphrases": [
+      "Reagan ghost",
+      "Lego ghost",
+      "Ranger ghost",
+      "regular ghost"
+    ]
+  },
+  "veigar barrier": {
+    "duration": 210,
+    "paraphrases": [
+      "wagon barrier",
+      "Waker barrier",
+      "rhaegar Targaryen",
+      "a regular beer",
+      "wake up Warrior",
+      "legal barrier"
+    ]
+  },
+  "veigar flash": {
+    "duration": 300,
+    "paraphrases": [
+      "Waker flesh",
+      "Wake Forest",
+      "Lego Flash",
+      "a regular flash"
+    ]
+  },
+  "veigar teleport": {
+    "duration": 360,
+    "paraphrases": [
+      "Lego City Port",
+      "Lego City Board",
+      "Veigar teleport",
+      "Waker teleport"
+    ]
+  },
+  "veigar smite": {
+    "duration": 15,
+    "paraphrases": [
+      "Ragan Smith",
+      "Lego Smith",
+      "Greg Smith",
+      "Wagner Smith",
+      "juego smite",
+      "Ragan Smith",
+      "Veigar smite",
+      "Vanguard smite"
+    ]
+  },
+  "veigar cleanse": {
+    "duration": 210,
+    "paraphrases": [
+      "Vega greens",
+      "Reagan cleans",
+      "Lego trains",
+      "Lego planes",
+      "regular cleans",
+      "reagor cleans"
+    ]
+  },
+  "veigar ignite": {
+    "duration": 180,
+    "paraphrases": [
+      "vagrant ignite",
+      "wake ID net",
+      "Waker ignite",
+      "Reggae night",
+      "Wagar ignite"
+    ]
+  },
+  "tristana heal": {
+    "duration": 240,
+    "paraphrases": [
+      "Chris Donahue",
+      "Vistana Hill",
+      "Chris donaghue"
+    ]
+  },
+  "tristana ghost": {
+    "duration": 180,
+    "paraphrases": [
+      "Easton ghost",
+      "prasanna ghost",
+      "dystonic ghost"
+    ]
+  },
+  "tristana barrier": {
+    "duration": 210,
+    "paraphrases": [
+      "dystonic barrier",
+      "standard barrier",
+      "three standard barrier"
+    ]
+  },
+  "tristana flash": {
+    "duration": 300,
+    "paraphrases": [
+      "Keystone The Flash",
+      "Tristana Flash",
+      "Tristana Flash"
+    ]
+  },
+  "tristana teleport": {
+    "duration": 360,
+    "paraphrases": [
+      "Tristana teleport",
+      "Tristana teleport",
+      "Tristana teleport"
+    ]
+  },
+  "tristana smite": {
+    "duration": 15,
+    "paraphrases": [
+      "Tristana smite",
+      "Tristana smite",
+      "Tristana smite"
+    ]
+  },
+  "tristana cleanse": {
+    "duration": 210,
+    "paraphrases": [
+      "restonic Lanes",
+      "Tristana Queens",
+      "Tristana Queens"
+    ]
+  },
+  "tristana ignite": {
+    "duration": 180,
+    "paraphrases": [
+      "Tristan McKnight",
+      "Tristana ignite",
+      "Tristana ignite"
+    ]
+  },
+  "morgana heal": {
+    "duration": 240,
+    "paraphrases": [
+      "Morgan Hill",
+      "organic you",
+      "Mark Donohue"
+    ]
+  },
+  "morgana ghost": {
+    "duration": 180,
+    "paraphrases": [
+      "Morgana ghost",
+      "organic ghost",
+      "Morgana ghost"
+    ]
+  },
+  "morgana barrier": {
+    "duration": 210,
+    "paraphrases": [
+      "Morgana barrier",
+      "Mariana barrier",
+      "Montgomery bordier"
+    ]
+  },
+  "morgana flash": {
+    "duration": 300,
+    "paraphrases": [
+      "Morgana flesh",
+      "organic flesh",
+      "Morgana plush"
+    ]
+  },
+  "morgana teleport": {
+    "duration": 360,
+    "paraphrases": [
+      "Morgana teleport",
+      "Morgana teleport",
+      "Morgana teleport"
+    ]
+  },
+  "morgana smite": {
+    "duration": 15,
+    "paraphrases": [
+      "Morgana smite",
+      "Rihanna smart",
+      "Morgana smite"
+    ]
+  },
+  "morgana cleanse": {
+    "duration": 210,
+    "paraphrases": [
+      "Morgana Queens",
+      "organic greens",
+      "Morgana Queens"
+    ]
+  },
+  "morgana ignite": {
+    "duration": 180,
+    "paraphrases": [
+      "Morgana ignite",
+      "Morgana ignite",
+      "Morgana ignite"
+    ]
+  },
+  "statistic": {
+    "duration": -1,
+    "paraphrases": [
+      "sticky stick"
+    ]
+  }
 }
