@@ -283,6 +283,174 @@
       "Morgana ignite"
     ]
   },
+  "nasus heal": {
+    "duration": 240,
+    "paraphrases": [
+    ]
+  },
+  "nasus ghost": {
+    "duration": 180,
+    "paraphrases": [
+      "nasus ghost",
+      "Natsu's ghost"
+    ]
+  },
+  "nasus barrier": {
+    "duration": 210,
+    "paraphrases": [
+      "nasus buddy yeah",
+      "nasus Maria",
+      "not supported yet"
+    ]
+  },
+  "nasus flash": {
+    "duration": 300,
+    "paraphrases": [
+      "not to Splash",
+      "nasus splash",
+      "nasus flesh"
+    ]
+  },
+  "nasus teleport": {
+    "duration": 360,
+    "paraphrases": [
+    ]
+  },
+  "nasus smite": {
+    "duration": 15,
+    "paraphrases": [
+      "nasus Mike",
+      "not so smite"
+    ]
+  },
+  "nasus cleanse": {
+    "duration": 210,
+    "paraphrases": [
+    ]
+  },
+  "nasus ignite": {
+    "duration": 180,
+    "paraphrases": [
+      "NASA signal"
+    ]
+  },
+  "nidalee heal": {
+    "duration": 240,
+    "paraphrases": [
+      "need a lift heel",
+      "nidalee heal",
+      "Nederland Co"
+    ]
+  },
+  "nidalee ghost": {
+    "duration": 180,
+    "paraphrases": [
+      "neither Lacoste",
+      "New Delhi ghost",
+      "night in the ghost"
+    ]
+  },
+  "nidalee barrier": {
+    "duration": 210,
+    "paraphrases": [
+      "Nathalie Paris",
+      "Nathalie Paris",
+      "not anybody yet"
+    ]
+  },
+  "nidalee flash": {
+    "duration": 300,
+    "paraphrases": [
+      "Nadia lafleche",
+      "9:30 flesh",
+      "Nida lafleche"
+    ]
+  },
+  "nidalee teleport": {
+    "duration": 360,
+    "paraphrases": [
+      "my little Airport",
+      "Nida Latina port"
+    ]
+  },
+  "nidalee smite": {
+    "duration": 15,
+    "paraphrases": [
+      "night Elie smite",
+      "Nigel is my"
+    ]
+  },
+  "nidalee cleanse": {
+    "duration": 210,
+    "paraphrases": [
+      "nightly cleanse",
+      "nidal Iglesias"
+    ]
+  },
+  "nidalee ignite": {
+    "duration": 180,
+    "paraphrases": [
+      "Nigel ignite"
+    ]
+  },
+  "darius heal": {
+    "duration": 240,
+    "paraphrases": [
+      "Daddio's heel",
+      "Dario's heal",
+      "Daddy was heel"
+    ]
+  },
+  "darius ghost": {
+    "duration": 180,
+    "paraphrases": [
+      "Dario's ghost",
+      "Daddio's ghost"
+    ]
+  },
+  "darius barrier": {
+    "duration": 210,
+    "paraphrases": [
+      "Daddy was Buddy app",
+      "daddy Yo's Berea"
+    ]
+  },
+  "darius flash": {
+    "duration": 300,
+    "paraphrases": [
+      "Dario's flesh",
+      "Daddy was Flash"
+    ]
+  },
+  "darius teleport": {
+    "duration": 360,
+    "paraphrases": [
+      "Mario's teleport",
+      "diarios teleport",
+      "dial Singapore"
+    ]
+  },
+  "darius smite": {
+    "duration": 15,
+    "paraphrases": [
+      "Daniel Smith",
+      "Dario Smith",
+      "Daddy was smite"
+    ]
+  },
+  "darius cleanse": {
+    "duration": 210,
+    "paraphrases": [
+      "Dario's Clemmons",
+      "Dario's cleans",
+      "Daddy was cleans"
+    ]
+  },
+  "darius ignite": {
+    "duration": 180,
+    "paraphrases": [
+    ]
+  },
   "statistic": {
     "duration": -1,
     "paraphrases": [
